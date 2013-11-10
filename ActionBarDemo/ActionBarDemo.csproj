@@ -86,13 +86,11 @@
     <AndroidResource Include="Resources\layout\actionbar.axml" />
     <AndroidResource Include="Resources\layout\actionbar_item.axml" />
     <AndroidResource Include="Resources\layout\Main.axml" />
+    <AndroidResource Include="Resources\values\Colors.xml" />
     <AndroidResource Include="Resources\values\Strings.xml" />
-    <AndroidResource Include="Resources\values\dimens.xml" />
-    <AndroidResource Include="Resources\values\styles.xml" />
-    <AndroidResource Include="Resources\values\Colors.xml">
-      <SubType>Designer</SubType>
-    </AndroidResource>
+    <AndroidResource Include="Resources\values\Styles.xml" />
     <AndroidResource Include="Resources\values\attrs.xml" />
+    <AndroidResource Include="Resources\values\dimens.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
@@ -104,5 +102,6 @@
   -->
   <ItemGroup>
     <Folder Include="ActionBar\" />
+    <Folder Include="Resources\values\" />
   </ItemGroup>
 </Project>

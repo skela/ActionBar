@@ -47,23 +47,50 @@ namespace ActionBarDemo
 		public partial class Color
 		{
 			
-			// aapt resource value: 0x7f040003
-			public const int actionbar_background_end = 2130968579;
+			// aapt resource value: 0x7f04000c
+			public const int actionbar_background_end = 2130968588;
 			
-			// aapt resource value: 0x7f040005
-			public const int actionbar_background_item_pressed_end = 2130968581;
+			// aapt resource value: 0x7f04000e
+			public const int actionbar_background_item_pressed_end = 2130968590;
+			
+			// aapt resource value: 0x7f04000d
+			public const int actionbar_background_item_pressed_start = 2130968589;
+			
+			// aapt resource value: 0x7f04000b
+			public const int actionbar_background_start = 2130968587;
+			
+			// aapt resource value: 0x7f040009
+			public const int actionbar_separator = 2130968585;
+			
+			// aapt resource value: 0x7f04000a
+			public const int actionbar_title = 2130968586;
+			
+			// aapt resource value: 0x7f040008
+			public const int background_color = 2130968584;
+			
+			// aapt resource value: 0x7f040006
+			public const int background_color_dark = 2130968582;
+			
+			// aapt resource value: 0x7f040007
+			public const int background_color_light = 2130968583;
 			
 			// aapt resource value: 0x7f040004
-			public const int actionbar_background_item_pressed_start = 2130968580;
+			public const int blue_facebook = 2130968580;
 			
-			// aapt resource value: 0x7f040002
-			public const int actionbar_background_start = 2130968578;
-			
-			// aapt resource value: 0x7f040000
-			public const int actionbar_separator = 2130968576;
+			// aapt resource value: 0x7f040005
+			public const int grey_skip = 2130968581;
 			
 			// aapt resource value: 0x7f040001
-			public const int actionbar_title = 2130968577;
+			public const int light_purple = 2130968577;
+			
+			// aapt resource value: 0x7f040003
+			public const int orange = 2130968579;
+			
+			// aapt resource value: 0x7f040000
+			public const int purple = 2130968576;
+			
+			// aapt resource value: 0x7f040002
+			public const int white = 2130968578;
 			
 			static Color()
 			{
@@ -211,11 +238,29 @@ namespace ActionBarDemo
 		public partial class String
 		{
 			
+			// aapt resource value: 0x7f060007
+			public const int AlreadyHaveAnAccountQ = 2131099655;
+			
+			// aapt resource value: 0x7f060006
+			public const int LogIn = 2131099654;
+			
+			// aapt resource value: 0x7f060003
+			public const int LoginWithFacebook = 2131099651;
+			
+			// aapt resource value: 0x7f060005
+			public const int SignUp = 2131099653;
+			
+			// aapt resource value: 0x7f060004
+			public const int SkipForNow = 2131099652;
+			
+			// aapt resource value: 0x7f060002
+			public const int SwipeToLearnMore = 2131099650;
+			
 			// aapt resource value: 0x7f060001
-			public const int ApplicationName = 2131099649;
+			public const int app_name = 2131099649;
 			
 			// aapt resource value: 0x7f060000
-			public const int Hello = 2131099648;
+			public const int hello = 2131099648;
 			
 			static String()
 			{
@@ -230,20 +275,35 @@ namespace ActionBarDemo
 		public partial class Style
 		{
 			
-			// aapt resource value: 0x7f070000
-			public const int ActionBar = 2131165184;
+			// aapt resource value: 0x7f070005
+			public const int ActionBar = 2131165189;
+			
+			// aapt resource value: 0x7f070007
+			public const int ActionBarHomeItem = 2131165191;
+			
+			// aapt resource value: 0x7f070008
+			public const int ActionBarHomeLogo = 2131165192;
+			
+			// aapt resource value: 0x7f070006
+			public const int ActionBarItem = 2131165190;
+			
+			// aapt resource value: 0x7f070009
+			public const int ActionBarProgressBar = 2131165193;
 			
 			// aapt resource value: 0x7f070002
-			public const int ActionBarHomeItem = 2131165186;
+			public const int Button = 2131165186;
 			
 			// aapt resource value: 0x7f070003
-			public const int ActionBarHomeLogo = 2131165187;
+			public const int CheckBox = 2131165187;
+			
+			// aapt resource value: 0x7f070000
+			public const int Theme_FaveFood = 2131165184;
 			
 			// aapt resource value: 0x7f070001
-			public const int ActionBarItem = 2131165185;
+			public const int Theme_FaveFood_Welcome = 2131165185;
 			
 			// aapt resource value: 0x7f070004
-			public const int ActionBarProgressBar = 2131165188;
+			public const int WelcomeButton = 2131165188;
 			
 			static Style()
 			{
