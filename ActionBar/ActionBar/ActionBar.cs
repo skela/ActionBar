@@ -9,8 +9,60 @@ using Android.Widget;
 
 namespace ActionBarDemo.Widget.ActionBar
 {
+	public interface IActionBarResources
+	{
+		IActionBarLayouts Layout { get;}
+		IActionBarIds Id { get;}
+		IActionBarStyleables Styleable { get;}
+	}
+
+	public interface IActionBarLayouts
+	{
+		int actionbar  { get;}
+		int actionbar_item {get;}
+	}
+
+	public interface IActionBarIds
+	{
+		int actionbar_home_logo  { get;}
+		int actionbar_home_btn  { get;}
+		int actionbar_home_is_back  { get;}
+		int actionbar_home_bg  { get;}
+		int actionbar_title  { get;}
+		int actionbar_actions  { get;}
+		int actionbar_left_actions  { get;}
+		int actionbar_progress  { get;}
+		int actionbar_item { get; }
+	}
+
+	public interface IActionBarStyleables
+	{
+		int[] styleable_actionbar  { get;}
+		int styleable_actionbar_title  { get;}
+	}
+
+	/*
+	 * 
+	 *         _mBarView = (RelativeLayout)_mInflater.Inflate(Resource.Layout.actionbar, null);
+            AddView(_mBarView);
+            _mLogoView = (ImageView)_mBarView.FindViewById(Resource.Id.actionbar_home_logo);
+            _mHomeLayout = (RelativeLayout)_mBarView.FindViewById(Resource.Id.actionbar_home_bg);
+            _mHomeBtn = (ImageButton)_mBarView.FindViewById(Resource.Id.actionbar_home_btn);
+            _mBackIndicator = _mBarView.FindViewById(Resource.Id.actionbar_home_is_back);
+            _mTitleView = (TextView)_mBarView.FindViewById(Resource.Id.actionbar_title);
+            _mTitleView.TextSize = 18;
+            _mActionsView = (LinearLayout)_mBarView.FindViewById(Resource.Id.actionbar_actions);
+            _mLeftActionsView = (LinearLayout)_mBarView.FindViewById(Resource.Id.actionbar_left_actions);
+            _mProgress = (ProgressBar)_mBarView.FindViewById(Resource.Id.actionbar_progress);
+            var a = context.ObtainStyledAttributes(attrs, Resource.Styleable.ActionBar);
+            var title = a.GetString(Resource.Styleable.ActionBar_title);
+	 * */
+
+
     public class ActionBar : RelativeLayout, View.IOnClickListener
     {
+		public static IActionBarResources R;
+
         private LayoutInflater _mInflater;
         private RelativeLayout _mBarView;
         private ImageView _mLogoView;
@@ -55,26 +107,25 @@ namespace ActionBarDemo.Widget.ActionBar
         private void InternalCtor(Context context, IAttributeSet attrs)
         {
             _mInflater = (LayoutInflater)context.GetSystemService(Context.LayoutInflaterService);
-            _mBarView = (RelativeLayout)_mInflater.Inflate(Resource.Layout.actionbar, null);
+			_mBarView = (RelativeLayout)_mInflater.Inflate(R.Layout.actionbar, null);
             AddView(_mBarView);
-            _mLogoView = (ImageView)_mBarView.FindViewById(Resource.Id.actionbar_home_logo);
-            _mHomeLayout = (RelativeLayout)_mBarView.FindViewById(Resource.Id.actionbar_home_bg);
-            _mHomeBtn = (ImageButton)_mBarView.FindViewById(Resource.Id.actionbar_home_btn);
-            _mBackIndicator = _mBarView.FindViewById(Resource.Id.actionbar_home_is_back);
-            _mTitleView = (TextView)_mBarView.FindViewById(Resource.Id.actionbar_title);
+			_mLogoView = (ImageView)_mBarView.FindViewById(R.Id.actionbar_home_logo);
+			_mHomeLayout = (RelativeLayout)_mBarView.FindViewById(R.Id.actionbar_home_bg);
+			_mHomeBtn = (ImageButton)_mBarView.FindViewById(R.Id.actionbar_home_btn);
+			_mBackIndicator = _mBarView.FindViewById(R.Id.actionbar_home_is_back);
+			_mTitleView = (TextView)_mBarView.FindViewById(R.Id.actionbar_title);
             _mTitleView.TextSize = 18;
-            _mActionsView = (LinearLayout)_mBarView.FindViewById(Resource.Id.actionbar_actions);
-            _mLeftActionsView = (LinearLayout)_mBarView.FindViewById(Resource.Id.actionbar_left_actions);
-            _mProgress = (ProgressBar)_mBarView.FindViewById(Resource.Id.actionbar_progress);
-            var a = context.ObtainStyledAttributes(attrs, Resource.Styleable.ActionBar);
-            var title = a.GetString(Resource.Styleable.ActionBar_title);
+			_mActionsView = (LinearLayout)_mBarView.FindViewById(R.Id.actionbar_actions);
+			_mLeftActionsView = (LinearLayout)_mBarView.FindViewById(R.Id.actionbar_left_actions);
+			_mProgress = (ProgressBar)_mBarView.FindViewById(R.Id.actionbar_progress);
+			var a = context.ObtainStyledAttributes(attrs,R.Styleable.styleable_actionbar);
+			var title = a.GetString(R.Styleable.styleable_actionbar_title);
             if (!string.IsNullOrEmpty(title))
             {
                 SetTitle(title);
             }
             a.Recycle();
         }
-
 
         public ActionBar SetHomeAction(IAction action)
         {
@@ -171,7 +222,7 @@ namespace ActionBarDemo.Widget.ActionBar
 
         public ActionBar AddStubAction()
         {
-            var view = _mInflater.Inflate(Resource.Layout.actionbar_item, _mActionsView, false);
+            var view = _mInflater.Inflate(R.Layout.actionbar_item, _mActionsView, false);
             view.Enabled = false;
             _mActionsView.AddView(view);
             return this;
@@ -216,7 +267,7 @@ namespace ActionBarDemo.Widget.ActionBar
                 if (!Guid.TryParse(strTag, out tag)) continue;
                 if (tag != actionID) continue;
                 view.Enabled = enabled;
-                var labelView = view.FindViewById<ImageButton>(Resource.Id.actionbar_item);
+                var labelView = view.FindViewById<ImageButton>(R.Id.actionbar_item);
                 labelView.SetImageResource(enabled ? action.Drawable : action.DrawableDisabled == -1 ? action.Drawable : action.DrawableDisabled);
                 return;
             }
@@ -264,8 +315,8 @@ namespace ActionBarDemo.Widget.ActionBar
 
         private View InflateAction(IAction action, bool enabled, ViewGroup viewGroup)
         {
-            var view = _mInflater.Inflate(Resource.Layout.actionbar_item, viewGroup, false);
-            var labelView = view.FindViewById<ImageButton>(Resource.Id.actionbar_item);
+            var view = _mInflater.Inflate(R.Layout.actionbar_item, viewGroup, false);
+            var labelView = view.FindViewById<ImageButton>(R.Id.actionbar_item);
             labelView.SetImageResource(enabled ? action.Drawable : action.DrawableDisabled == -1 ? action.Drawable : action.DrawableDisabled);
             var key = Guid.NewGuid();
             view.Tag = key.ToString();

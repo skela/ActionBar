@@ -217,9 +217,6 @@ namespace ActionBarDemo
 			// aapt resource value: 0x7f060000
 			public const int Hello = 2131099648;
 			
-			// aapt resource value: 0x7f060002
-			public const int actionbar_activity_not_found = 2131099650;
-			
 			static String()
 			{
 				global::Android.Runtime.ResourceIdManager.UpdateIdValues();

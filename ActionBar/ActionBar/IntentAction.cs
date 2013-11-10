@@ -30,9 +30,7 @@ namespace ActionBarDemo.Widget.ActionBar
             }
             catch (ActivityNotFoundException)
             {
-                Toast.MakeText(_context,
-                        _context.GetText(Resource.String.actionbar_activity_not_found),
-                        ToastLength.Short).Show();
+				Toast.MakeText(_context,"Failed to open intent...",ToastLength.Short).Show();
             }
         }
     }
