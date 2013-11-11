@@ -315,9 +315,9 @@ namespace ActionBarDemo.Widget.ActionBar
 
         private View InflateAction(IAction action, bool enabled, ViewGroup viewGroup)
         {
-            var view = _mInflater.Inflate(R.Layout.actionbar_item, viewGroup, false);
-            var labelView = view.FindViewById<ImageButton>(R.Id.actionbar_item);
-            labelView.SetImageResource(enabled ? action.Drawable : action.DrawableDisabled == -1 ? action.Drawable : action.DrawableDisabled);
+			ImageButton view = _mInflater.Inflate (R.Layout.actionbar_item, viewGroup, false) as ImageButton;
+            //var labelView = view.FindViewById<ImageButton>(R.Id.actionbar_item);
+			view.SetImageResource(enabled ? action.Drawable : action.DrawableDisabled == -1 ? action.Drawable : action.DrawableDisabled);
             var key = Guid.NewGuid();
             view.Tag = key.ToString();
             view.Enabled = enabled;
