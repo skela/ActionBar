@@ -145,8 +145,8 @@ namespace ActionBarDemo
             mailIntent.SetType("text/plain");
             var intent = Intent.CreateChooser(mailIntent, "Send mail");
             ActionBar.AddAction(new IntentAction(this, intent, Resource.Drawable.ic_action_message)).AddStubAction()
-                .AddAction(new DeleagetAction(OpenCameraClick, Android.Resource.Drawable.IcMenuCamera))
-                .AddLeftAction(new DeleagetAction(Finish, Resource.Drawable.ic_action_back))
+				.AddAction(new DelegateAction(OpenCameraClick, Android.Resource.Drawable.IcMenuCamera))
+				.AddLeftAction(new DelegateAction(Finish, Resource.Drawable.ic_action_back))
                 .SetTitle("ActionBarTest");
         }
 

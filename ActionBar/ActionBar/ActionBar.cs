@@ -136,6 +136,29 @@ namespace ActionBarDemo.Widget.ActionBar
             return this;
         }
 
+		public IAction LeftBarButtonItem
+		{
+			set
+			{
+				if (value == null)
+					ClearHomeAction();
+				else
+					SetHomeLogo(value);
+			}
+		}
+
+		public IAction RightBarButtonItem
+		{
+			set
+			{
+				RemoveAllActions();
+				if (value != null)
+				{
+					AddAction(value);
+				}
+			}
+		}
+
         public void ClearHomeAction()
         {
             _mHomeLayout.Visibility = ViewStates.Gone;
@@ -155,10 +178,11 @@ namespace ActionBarDemo.Widget.ActionBar
                 throw new ArgumentNullException("action");
             _mLogoView.SetImageResource(action.Drawable);
             _mLogoView.Visibility = ViewStates.Visible;
-            _mLogoView.Click += delegate
-                                  {
-                                      action.PerformAction();
-                                  };
+
+			_mLogoView.Click += delegate
+			 {
+             	action.PerformAction();
+			 };
             _mHomeLayout.Visibility = ViewStates.Gone;
             return this;
         }

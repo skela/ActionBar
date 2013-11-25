@@ -1,6 +1,6 @@
 ﻿namespace ActionBarDemo.Widget.ActionBar
 {
-    public abstract class BaseAction : IAction
+	public abstract class BaseAction : Java.Lang.Object,IAction
     {
         protected BaseAction(int drawable, int drawableDisabled = -1)
         {
